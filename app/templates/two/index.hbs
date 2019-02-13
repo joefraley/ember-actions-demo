@@ -1,0 +1,10 @@
+<p>This screen is the SECOND example of actions</p>
+
+<button {{ action "doSomething" }} >Action Helper - string style, watch out for index routes!</button>
+
+<p>This example demonstrates how Ember treats "nested index routes"</p>
+<p>That is, I have a route at routes/two.js, but a template at routes/two/index.js</p>
+<p>Ember does all kinds of weird stuff here. It's not clear to me why this is even part of the Ember API.</p>
+<p>To play with this behavior, head into routes/two/index.js and comment out the doSomething handler</p>
+
+<p>Do we ever need to use "nested index routes"?</p>

@@ -1,0 +1,11 @@
+<button {{ action myAction}}>
+    ember action strings {{ myText }}
+</button>
+
+<button onclick={{ myAction }}>
+    hbs non-string {{ myText }}
+</button>
+
+<button onclick={{ action @myAction }}>
+    ember closure action {{ myText }}
+</button>
