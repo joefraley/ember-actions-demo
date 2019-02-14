@@ -1,70 +1,71 @@
 <p>This screen is the THIRD example of actions</p>
-
 <p>Here we see three different handlebars syntaxes for action handlers</p>
 <ol>
-    <li>
-        <p>the <a href="https://guides.emberjs.com/release/templates/actions/#toc_action-parameters"/> ember standard action helper </a>, or \{\{action "myActionName"\}\} where the route looks like this:</p>
-        <code>
-            {
-                ...
-                actions: {
-                    myActionName() {
-                        ...
-                    }
-                }
-            }
-        </code>
-    </li>
-    <li>
-        <p>the <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XUL/Attribute/onclick">html standard action handler</a> with a function reference from the component:</p>
-        <code>
-            // handlebars template
-            button onclick={this.myFunctionName}
-        </code>
-        <code>
-            // route file
-            {
-                ...
-                myFunctionName() { // no "actions" hash
-                    ...
-                }
-            }
-        </code>
-    </li>
-    <li>
-        <p>the <a href="https://alexdiliberto.com/posts/ember-closure-actions/"/> ember closure action style helper </a> with a function reference from the component:</p>
-        <code>
-            // handlebars template
-            button onclick=\{\{action this.myFunctionName \}\}
-        </code>
-        <code>
-            // route file
-            {
-                ...
-                myFunctionName() { // no "actions" hash
-                    ...
-                }
-            }
-        </code>
-    </li>
-    <li>
-        <p>the same thing using the actions hash as a namespace:</p>
-        <code>
-            // handlebars template
-            button onclick=\{\{action this.actions.myFunctionName \}\}
-        </code>
-        <code>
-            // route file
-            {
-                ...
-                actions: {
-                    myFunctionName() {
-                        ...
-                    }
-                }
-            }
-        </code>
-    </li>
+
+  <li>
+    <p>the <a href="https://guides.emberjs.com/release/templates/actions/#toc_action-parameters"> ember standard action helper </a>, or <code>\{{ action "myActionName" }}</code> where the route looks like this:</p>
+    <pre>
+      // route.js
+      Route.extend({
+        actions: {
+          myActionName() {
+          ...
+          }
+        }
+      })
+    </pre>
+  </li>
+
+
+  <li>
+    <p>the <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XUL/Attribute/onclick">html standard action handler</a> with a function reference from the component:</p>
+    <pre>
+      // template.hbs
+      button onclick={this.myFunctionName}
+    </pre>
+    <pre>
+      // route.js
+      Route.extend({
+        myFunctionName() { // no "actions" hash
+          ...
+        }
+      })
+    </pre>
+  </li>
+
+  <li>
+    <p>the <a href="https://alexdiliberto.com/posts/ember-closure-actions/"> ember closure action style helper </a> with a function reference from the component:</p>
+    <pre>
+      // template.hbs
+      button onclick=\{{ action this.myFunctionName }}
+    </pre>
+    <pre>
+      // route.js
+      Route.extend({
+        myFunctionName() { // no "actions" hash
+          ...
+        }
+      })
+    </pre>
+  </li>
+
+  <li>
+    <p>the same thing using the actions hash as a namespace:</p>
+    <pre>
+      // template.hbs
+      button onclick=\{{ action this.actions.myFunctionName }}
+    </pre>
+    <pre>
+      // route file
+      {
+        actions: {
+          myFunctionName() {
+            ...
+          }
+        }
+      }
+    </pre>
+  </li>
 </ol>
 
 <button {{ action "doSomething" }} >ember action strings</button>
